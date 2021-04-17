@@ -17,32 +17,6 @@ def create_data_model():
 	data['bin_capacities'] = [100, 100, 100, 100, 100]
 	return data
 
-def SolveWithTimeLimitSampleSat():
-    """Minimal CP-SAT example to showcase calling the solver."""
-    # Creates the model.
-    model = cp_model.CpModel()
-    # Creates the variables.
-    num_vals = 3
-    x = model.NewIntVar(0, num_vals - 1, 'x')
-    y = model.NewIntVar(0, num_vals - 1, 'y')
-    z = model.NewIntVar(0, num_vals - 1, 'z')
-    # Adds an all-different constraint.
-    model.Add(x != y)
-
-    # Creates a solver and solves the model.
-    solver = cp_model.CpSolver()
-
-    # Sets a time limit of 10 seconds.
-    solver.parameters.max_time_in_seconds = 1.0
-
-    status = solver.Solve(model)
-
-    # if status == cp_model.OPTIMAL:
-    #     print('x = %i' % solver.Value(x))
-    #     print('y = %i' % solver.Value(y))
-    #     print('z = %i' % solver.Value(z))
-
-
 def main():
 	data = create_data_model()
 	solver = pywraplp.Solver.CreateSolver('SCIP')
@@ -88,6 +62,7 @@ def main():
 	                      data['values'][i])
 	                bin_weight += data['weights'][i]
 	                bin_value += data['values'][i]
+					
 	        print('Packed bin weight:', bin_weight)
 	        print('Packed bin value:', bin_value)
 	        print()
