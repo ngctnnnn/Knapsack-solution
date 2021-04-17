@@ -1,5 +1,6 @@
 from ortools.linear_solver import pywraplp
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 def create_data_model():
     """Create the data for the example."""
     data = {}
@@ -63,14 +64,6 @@ def main():
 	    print('Total packed weight:', total_weight)
 	else:
 	    print('The problem does not have an optimal solution.')
-		
-	sns.set_style("whitegrid")
-	plt.plot(maxFitnessValues, color='red')
-	plt.plot(meanFitnessValues, color='green')
-	plt.xlabel('Generation')
-	plt.ylabel('Max / Average Fitness')
-	plt.title('Max and Average fitness over Generations')
-	plt.show()
 
 if __name__ == '__main__':
 	main()
