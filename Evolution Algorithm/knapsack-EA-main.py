@@ -5,10 +5,10 @@ from deap import algorithms
 
 import random
 import numpy
-
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+# import time
 import knapsack
 
 # problem constants:
@@ -16,10 +16,10 @@ import knapsack
 knapsack = knapsack.Knapsack01Problem()
 
 # Genetic Algorithm constants:
-POPULATION_SIZE = 50
+POPULATION_SIZE = 100
 P_CROSSOVER = 0.9  # probability for crossover
 P_MUTATION = 0.3   # probability for mutating an individual
-MAX_GENERATIONS = 50
+MAX_GENERATIONS = 10000000
 HALL_OF_FAME_SIZE = 1
 
 
@@ -67,7 +67,7 @@ toolbox.register("mutate", tools.mutFlipBit, indpb=1.0/len(knapsack))
 
 # Genetic Algorithm flow:
 def main():
-
+    
     # create initial population (generation 0):
     population = toolbox.populationCreator(n=POPULATION_SIZE)
 
@@ -76,12 +76,14 @@ def main():
     stats.register("max", numpy.max)
     stats.register("avg", numpy.mean)
 
+
     # define the hall-of-fame object:
     hof = tools.HallOfFame(HALL_OF_FAME_SIZE)
 
     # perform the Genetic Algorithm flow with hof feature added:
     population, logbook = algorithms.eaSimple(population, toolbox, cxpb=P_CROSSOVER, mutpb=P_MUTATION,
                                               ngen=MAX_GENERATIONS, stats=stats, halloffame=hof, verbose=True)
+
 
     # print best solution found:
     best = hof.items[0]
@@ -94,7 +96,7 @@ def main():
     # extract statistics:
     maxFitnessValues, meanFitnessValues = logbook.select("max", "avg")
 
-    # plot statistics:
+    # plot statistics:x
     sns.set_style("whitegrid")
     plt.plot(maxFitnessValues, color='red')
     plt.plot(meanFitnessValues, color='green')
