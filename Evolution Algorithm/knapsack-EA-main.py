@@ -9,7 +9,7 @@ import numpy
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-# import time
+import time
 import knapsack
 
 # problem constants:
@@ -20,13 +20,15 @@ knapsack = knapsack.Knapsack01Problem()
 POPULATION_SIZE = 100
 P_CROSSOVER = 0.9  # probability for crossover
 P_MUTATION = 0.3   # probability for mutating an individual
-MAX_GENERATIONS = 10000000
+MAX_GENERATIONS = 10000
 HALL_OF_FAME_SIZE = 1
 
 
 # set the random seed:
 RANDOM_SEED = 42
 random.seed(RANDOM_SEED)
+   
+       
 
 def varAnd(population, toolbox, cxpb, mutpb):
     offspring = [toolbox.clone(ind) for ind in population]
@@ -65,7 +67,14 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
         print(logbook.stream)
 
     # Begin the generational process
-    for gen in range(1, ngen + 1):
+    gen, elapsed = 1, 0
+    start = time.time()
+    while gen <= ngen and elapsed < 10:
+        gen += 1
+
+        #Time 
+        elapsed = time.time() - start 
+        
         # Select the next generation individuals
         offspring = toolbox.select(population, len(population))
 
