@@ -10,17 +10,17 @@ def main():
 	# folder_to_run = int(input())
 
 	inp = data.input_data()
-	cnt = 0
+	
 	
 	#Declare time
 	start = time.time()
 	elapsed = 0
+	check_point = 19
 
 	# for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
-	for name in range(len(inp)):
-		cnt += 1
+	for name in range(check_point, len(inp)):
 		print('File name: ' + inp[name])
-		# print('Package number: ' + str(name + 1))
+		print('Package number: ' + str(name))
 		with open(inp[name] + ".kp") as level_file:
 			rows = level_file.read().split('\n')
 		
@@ -28,7 +28,6 @@ def main():
 		capacities = [(int)(rows[2])]
 		values = []
 		weights = [[]]
-		cnt = 0
 		for i in range(4, number_items + 5 - 1):
 			x = rows[i].split(" ")[0]
 			y = rows[i].split(" ")[1]
@@ -42,7 +41,7 @@ def main():
 
 
 		#Set time limit - milisec
-		solver.set_time_limit(300000)
+		solver.set_time_limit(180000)
 
 		solver.Init(values, weights, capacities)
 		computed_value = solver.Solve()
@@ -67,6 +66,8 @@ def main():
 			solver_file.write('Number of items: {} \n'.format(str(len(packed_items))))
 			# solver_file.write('Packed items: {} \n'.format(packed_items))
 			# solver_file.write('Packed weights: {}'.format(len(packed_items)))
+
+		print('Execution time: ' + str(elapsed))
 
 		# print('Capacity = ' + str(capacities[0]))
 		# print('Total weight = ' + str(total_weight))

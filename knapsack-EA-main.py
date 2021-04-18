@@ -72,10 +72,10 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
     curr_max = -999
     cnt = 0
 
-    #set the timer for 5 minutes = 300 seconds
+    #set the timer for 3 minutes = 180 seconds
     #if the previous max is larger or equal than current max 300 times -> break the algorithm
     #which means the max is almost optimal or already optimal
-    while gen <= ngen and elapsed < 300 and cnt < 300:
+    while gen <= ngen and elapsed < 300 and cnt < 180:
         
         gen += 1
 

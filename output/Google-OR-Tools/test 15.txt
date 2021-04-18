@@ -1,5 +1,5 @@
 File name: data/01WeaklyCorrelated/8/R10000/s079
-Execution time: 1.4827842712402344 sec
+Execution time: 1.7434828281402588 sec
 Capacity = 24765450 
 Total weight = 24765450 
 Total value = 27374941 

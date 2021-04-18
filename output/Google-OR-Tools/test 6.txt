@@ -1,5 +1,5 @@
 File name: data/00Uncorrelated/7/R10000/s056
-Execution time: 0.25421810150146484 sec
+Execution time: 0.29307985305786133 sec
 Capacity = 12433732 
 Total weight = 12433728 
 Total value = 20336097 
