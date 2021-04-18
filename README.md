@@ -1,5 +1,6 @@
 # Knapsack Solution
-This is my repo for CS106 - Artificial Intelligence - homework: **Solving knapsack using OR Tools and Genetic Algorithm**
+This is my repo for CS106 - Artificial Intelligence - homework:     
+***Solving knapsack using OR Tools and Genetic Algorithm***
 
 ## How to run 
 ### With Google OR Tools
