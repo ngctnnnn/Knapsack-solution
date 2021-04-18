@@ -7,9 +7,13 @@ class Knapsack01Problem:
         # initialize instance variables:
         self.items = []
         self.maxCapacity = 0
+        self.file_name = ""
 
         # initialize the data:
         self.__initData()
+
+        self.file_number = 0
+
 
     def __len__(self):
         #return: the total number of items defined in the problem
@@ -18,14 +22,15 @@ class Knapsack01Problem:
     def __initData(self):
         
         inp = data.input_data()
-        file_number = 1
+        self.file_number = 1
 
         #Read files
-        with open(inp[file_number - 1] + ".kp") as level_file:
+        with open(inp[self.file_number - 1] + ".kp") as level_file:
             rows = level_file.read().split('\n')
 
         number_of_items = (int)(rows[1])
         self.items = []
+        self.file_name = inp[self.file_number - 1]
 
         for i in range(4, number_of_items + 5 - 1):
             x = rows[i].split(" ")[0]
@@ -35,12 +40,10 @@ class Knapsack01Problem:
 
         self.maxCapacity = (int)(rows[2])
 
+    def get_file_name(self):
+        return self.file_name
+
     def getValue(self, zeroOneList):
-        """
-        Calculates the value of the selected items in the list, while ignoring items that will cause the accumulating weight to exceed the maximum weight
-        :param zeroOneList: a list of 0/1 values corresponding to the list of the problem's items. '1' means that item was selected.
-        :return: the calculated value
-        """
 
         totalWeight = totalValue = 0
 
@@ -52,10 +55,7 @@ class Knapsack01Problem:
         return totalValue
 
     def printItems(self, zeroOneList):
-        """
-        Prints the selected items in the list, while ignoring items that will cause the accumulating weight to exceed the maximum weight
-        :param zeroOneList: a list of 0/1 values corresponding to the list of the problem's items. '1' means that item was selected.
-        """
+
         totalWeight = totalValue = 0
 
         for i in range(len(zeroOneList)):
@@ -64,16 +64,14 @@ class Knapsack01Problem:
                 if zeroOneList[i] > 0:
                     totalWeight += weight
                     totalValue += value
-                    print("weight = {}, value = {}, accumulated weight = {}, accumulated value = {}".format(weight, value, totalWeight, totalValue))
-        print("- Total weight = {}, Total value = {}".format(totalWeight, totalValue))
+        #             print("weight = {}, value = {}, accumulated weight = {}, accumulated value = {}".format(weight, value, totalWeight, totalValue))
+        # print("- Total weight = {}, Total value = {}".format(totalWeight, totalValue))
+        return totalWeight, totalValue
 
-
-# testing the class:
 def main():
-    # create a problem instance:
+    
     knapsack = Knapsack01Problem()
 
-    # creaete a random solution and evaluate it:
     randomSolution = np.random.randint(2, size=len(knapsack))
     print("Random Solution = ", end = '')
     print(randomSolution)

@@ -6,14 +6,16 @@ import time
 import data
 def main():
 	#from 1 to 12
-	print('Input folder to run (1->13): ', end = '')
-	folder_to_run = int(input())
+	# print('Input folder to run (1->13): ', end = '')
+	# folder_to_run = int(input())
 
 	inp = data.input_data()
-
-	for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
+	cnt = 0
+	# for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
+	for name in range(len(inp)):
+		cnt += 1
 		print('File name: ' + inp[name])
-		print('Package number: ' + str(name + 1))
+		# print('Package number: ' + str(name + 1))
 		with open(inp[name] + ".kp") as level_file:
 			rows = level_file.read().split('\n')
 		
@@ -43,16 +45,24 @@ def main():
 		packed_items = []
 		packed_weights = []
 		total_weight = 0
-		print('Total value =', computed_value)
 		for i in range(len(values)):
 			if solver.BestSolutionContains(i):
 				packed_items.append(i)	
 				packed_weights.append(weights[0][i])
 				total_weight += weights[0][i]
 
-		print('Capacity = ' + str(capacities[0]))
-		print('Total weight = ' + str(total_weight))
-		print('Number of items: ' + str(len(packed_items)))
+		with open("output/Google-OR-Tools/" + "test " + str(name) + ".txt", 'w+') as solver_file:
+			solver_file.write('File name: {}\n'.format(inp[name]))
+			solver_file.write('Capacity = {} \n'.format(str(capacities[0])))
+			solver_file.write('Total weight = {} \n'.format(str(total_weight)))
+			solver_file.write('Total value = {} \n'.format(computed_value))
+			solver_file.write('Number of items: {} \n'.format(str(len(packed_items))))
+			# solver_file.write('Packed items: {} \n'.format(packed_items))
+			# solver_file.write('Packed weights: {}'.format(len(packed_items)))
+
+		# print('Capacity = ' + str(capacities[0]))
+		# print('Total weight = ' + str(total_weight))
+		# print('Number of items: ' + str(len(packed_items)))
 		# print('Packed items:', packed_items)
 		# print('Packed_weights:', packed_weights)
 		print()

@@ -1,0 +1,5 @@
+File name: data/01WeaklyCorrelated/1/R10000/s057
+Capacity = 128777 
+Total weight = 128690 
+Total value = 140891 
+Number of items: 27 

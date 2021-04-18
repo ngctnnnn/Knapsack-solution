@@ -1,0 +1,5 @@
+File name: data/00Uncorrelated/6/R10000/s051
+Capacity = 4960385 
+Total weight = 4960376 
+Total value = 8182011 
+Number of items: 1240 

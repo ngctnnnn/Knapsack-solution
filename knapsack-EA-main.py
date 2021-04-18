@@ -19,7 +19,7 @@ knapsack = knapsack.Knapsack01Problem()
 POPULATION_SIZE = 100
 P_CROSSOVER = 0.9  # probability for crossover
 P_MUTATION = 0.3   # probability for mutating an individual
-MAX_GENERATIONS = 10000
+MAX_GENERATIONS = 1000000000000
 HALL_OF_FAME_SIZE = 1
 
 # set the random seed:
@@ -58,6 +58,7 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
         halloffame.update(population)
 
     record = stats.compile(population) if stats else {}
+
     logbook.record(gen=0, nevals=len(invalid_ind), **record)
     if verbose:
         print(logbook.stream)
@@ -66,9 +67,22 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
     # elapsed is calculated as seconds
     gen, elapsed = 1, 0
     start = time.time()
-    while gen <= ngen and elapsed < 10:
+    curr_max = -999
+    cnt = 0
+
+    #set the timer for 5 minutes = 300 seconds
+    #if the previous max is larger or equal than current max 300 times -> break the algorithm
+    #which means the max is almost optimal or already optimal
+    while gen <= ngen and elapsed < 300 and cnt < 300:
         
         gen += 1
+
+        if curr_max >= record["max"]:
+            cnt += 1
+        else:
+            curr_max = record["max"]
+            cnt = 0
+        # print(cnt)
 
         #Time 
         elapsed = time.time() - start 
@@ -159,12 +173,22 @@ def main():
     # print best solution found:
     best = hof.items[0]
     print(end = '\n')
-    print("-- Executed time = " + str(minutes) + " sec", end = '\n')
-    print("-- Best Ever Individual = ", best)
-    print("-- Best Ever Fitness = ", best.fitness.values[0])
+    totalWeight, totalValue = knapsack.printItems(best)
 
-    print("-- Knapsack Items = ")
-    knapsack.printItems(best)
+    with open("output/Genetic-Algorithm/" + "test " + str(knapsack.file_number) + ".txt", 'w+') as solver_file:
+        solver_file.write('File name: {}\n'.format(knapsack.file_name))
+        solver_file.write('Executed time = {} sec \n'.format(minutes))
+        solver_file.write('Best genes = {} \n'.format(best))
+        solver_file.write('Best solution = {} \n'.format(best.fitness.values[0]))
+        solver_file.write('Total weight = {} \n'.format(totalWeight))
+        solver_file.write('Total value = {} \n'.format(totalValue))
+
+    # print("-- Executed time = " + str(minutes) + " sec", end = '\n')
+    # print("-- Best Ever Individual = ", best)
+    # print("-- Best Ever Fitness = ", best.fitness.values[0])
+
+    # print("-- Knapsack Items = ")
+
 
     # extract statistics:
     maxFitnessValues, meanFitnessValues = logbook.select("max", "avg")
