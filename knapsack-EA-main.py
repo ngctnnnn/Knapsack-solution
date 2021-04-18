@@ -12,7 +12,6 @@ import seaborn as sns
 import time
 import knapsack
 
-# problem constants:
 # create the knapsack problem instance to be used:
 knapsack = knapsack.Knapsack01Problem()
 
@@ -23,12 +22,9 @@ P_MUTATION = 0.3   # probability for mutating an individual
 MAX_GENERATIONS = 10000
 HALL_OF_FAME_SIZE = 1
 
-
 # set the random seed:
 RANDOM_SEED = 42
 random.seed(RANDOM_SEED)
-   
-       
 
 def varAnd(population, toolbox, cxpb, mutpb):
     offspring = [toolbox.clone(ind) for ind in population]
@@ -67,9 +63,11 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
         print(logbook.stream)
 
     # Begin the generational process
+    # elapsed is calculated as seconds
     gen, elapsed = 1, 0
     start = time.time()
     while gen <= ngen and elapsed < 10:
+        
         gen += 1
 
         #Time 
@@ -100,7 +98,7 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
         if verbose:
             print(logbook.stream)
 
-    return population, logbook
+    return population, logbook, elapsed 
 
 toolbox = base.Toolbox()
 
@@ -119,11 +117,9 @@ toolbox.register("individualCreator", tools.initRepeat, creator.Individual, tool
 # create the population operator to generate a list of individuals:
 toolbox.register("populationCreator", tools.initRepeat, list, toolbox.individualCreator)
 
-
 # fitness calculation
 def knapsackValue(individual):
     return knapsack.getValue(individual),  # return a tuple
-
 
 toolbox.register("evaluate", knapsackValue)
 
@@ -156,12 +152,14 @@ def main():
     hof = tools.HallOfFame(HALL_OF_FAME_SIZE)
 
     # perform the Genetic Algorithm flow with hof feature added:
-    population, logbook = eaSimple(population, toolbox, cxpb=P_CROSSOVER, mutpb=P_MUTATION,
+    population, logbook, minutes = eaSimple(population, toolbox, cxpb=P_CROSSOVER, mutpb=P_MUTATION,
                                               ngen=MAX_GENERATIONS, stats=stats, halloffame=hof, verbose=True)
 
 
     # print best solution found:
     best = hof.items[0]
+    print(end = '\n')
+    print("-- Executed time = " + str(minutes) + " sec", end = '\n')
     print("-- Best Ever Individual = ", best)
     print("-- Best Ever Fitness = ", best.fitness.values[0])
 
@@ -179,7 +177,6 @@ def main():
     plt.ylabel('Max / Average Fitness')
     plt.title('Max and Average fitness over Generations')
     plt.show()
-
 
 if __name__ == "__main__":
     main()
