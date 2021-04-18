@@ -15,6 +15,8 @@ import knapsack
 # create the knapsack problem instance to be used:
 knapsack = knapsack.Knapsack01Problem()
 
+FILE_NUM = 4
+
 # Genetic Algorithm constants:
 POPULATION_SIZE = 100
 P_CROSSOVER = 0.9  # probability for crossover
@@ -25,7 +27,7 @@ HALL_OF_FAME_SIZE = 1
 # set the random seed:
 RANDOM_SEED = 42
 random.seed(RANDOM_SEED)
-
+    
 def varAnd(population, toolbox, cxpb, mutpb):
     offspring = [toolbox.clone(ind) for ind in population]
 
@@ -112,7 +114,7 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
         if verbose:
             print(logbook.stream)
 
-    return population, logbook, elapsed 
+    return population, logbook, elapsed, gen 
 
 toolbox = base.Toolbox()
 
@@ -166,7 +168,7 @@ def main():
     hof = tools.HallOfFame(HALL_OF_FAME_SIZE)
 
     # perform the Genetic Algorithm flow with hof feature added:
-    population, logbook, minutes = eaSimple(population, toolbox, cxpb=P_CROSSOVER, mutpb=P_MUTATION,
+    population, logbook, minutes, gen = eaSimple(population, toolbox, cxpb=P_CROSSOVER, mutpb=P_MUTATION,
                                               ngen=MAX_GENERATIONS, stats=stats, halloffame=hof, verbose=True)
 
 
@@ -175,8 +177,9 @@ def main():
     print(end = '\n')
     totalWeight, totalValue = knapsack.printItems(best)
 
-    with open("output/Genetic-Algorithm/" + "test " + str(knapsack.file_number) + ".txt", 'w+') as solver_file:
+    with open("output/Genetic-Algorithm/test" + str(FILE_NUM) + ".txt", 'w+') as solver_file:
         solver_file.write('File name: {}\n'.format(knapsack.file_name))
+        solver_file.write('Generation: {} \n'.format(gen))
         solver_file.write('Executed time = {} sec \n'.format(minutes))
         solver_file.write('Best genes = {} \n'.format(best))
         solver_file.write('Best solution = {} \n'.format(best.fitness.values[0]))

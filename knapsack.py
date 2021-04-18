@@ -22,10 +22,11 @@ class Knapsack01Problem:
     def __initData(self):
         
         inp = data.input_data()
-        self.file_number = 1
+
+        self.file_number = 4
 
         #Read files
-        with open(inp[self.file_number - 1] + ".kp") as level_file:
+        with open(inp[self.file_number] + ".kp") as level_file:
             rows = level_file.read().split('\n')
 
         number_of_items = (int)(rows[1])

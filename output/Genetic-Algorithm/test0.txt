@@ -1,5 +1,6 @@
-File name: data/00Uncorrelated/1/R01000/s085
-Executed time = 1.630507469177246 sec 
+File name: data/12Circle/8/R01000/s052
+Generation: 368 
+Executed time = 1.638420581817627 sec 
 Best genes = [1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1] 
 Best solution = 19773.0 
 Total weight = 12792 
