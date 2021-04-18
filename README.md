@@ -11,3 +11,7 @@ This is my repo for CS106 - Artificial Intelligence - homework:
 **Step 2**: Run the main program    
 `python3 knapsack-OR.py`    
 ### With Genetic Algorithm
+**Step 1**: Change `file_number` in `def __initData()` in `knapsack.py` into your want-to-run input file    
+**Step 2**: Change `FILE_NUMBER` in `knapsack-EA-main.py` the same as in the step 1 above
+**Step 3**: Run the main program   
+`python3 knapsack-EA-main.py`
