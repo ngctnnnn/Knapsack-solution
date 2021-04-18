@@ -15,7 +15,7 @@ import knapsack
 # create the knapsack problem instance to be used:
 knapsack = knapsack.Knapsack01Problem()
 
-FILE_NUM = 7
+FILE_NUM = 0
 
 # Genetic Algorithm constants:
 POPULATION_SIZE = 100
@@ -177,7 +177,7 @@ def main():
     print(end = '\n')
     totalWeight, totalValue = knapsack.printItems(best)
 
-    with open("output/Genetic-Algorithm/test" + str(FILE_NUM) + ".txt", 'w+') as solver_file:
+    with open("output/Genetic-Algorithm/test " + str(FILE_NUM) + ".txt", 'w+') as solver_file:
         solver_file.write('File name: {}\n'.format(knapsack.file_name))
         solver_file.write('Generation: {} \n'.format(gen))
         solver_file.write('Executed time = {} sec \n'.format(minutes))
