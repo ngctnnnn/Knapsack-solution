@@ -1,4 +1,5 @@
 File name: data/00Uncorrelated/3/R10000/s023
+Execution time: 0.05091691017150879 sec
 Capacity = 526186 
 Total weight = 525855 
 Total value = 791932 

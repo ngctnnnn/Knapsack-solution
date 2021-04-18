@@ -11,6 +11,11 @@ def main():
 
 	inp = data.input_data()
 	cnt = 0
+	
+	#Declare time
+	start = time.time()
+	elapsed = 0
+
 	# for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
 	for name in range(len(inp)):
 		cnt += 1
@@ -51,8 +56,11 @@ def main():
 				packed_weights.append(weights[0][i])
 				total_weight += weights[0][i]
 
+		elapsed = time.time() - start
+
 		with open("output/Google-OR-Tools/" + "test " + str(name) + ".txt", 'w+') as solver_file:
 			solver_file.write('File name: {}\n'.format(inp[name]))
+			solver_file.write('Execution time: {} sec\n'.format(elapsed))
 			solver_file.write('Capacity = {} \n'.format(str(capacities[0])))
 			solver_file.write('Total weight = {} \n'.format(str(total_weight)))
 			solver_file.write('Total value = {} \n'.format(computed_value))

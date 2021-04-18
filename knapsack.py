@@ -23,7 +23,7 @@ class Knapsack01Problem:
         
         inp = data.input_data()
 
-        self.file_number = 4
+        self.file_number = 7
 
         #Read files
         with open(inp[self.file_number] + ".kp") as level_file:
