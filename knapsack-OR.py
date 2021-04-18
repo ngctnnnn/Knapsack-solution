@@ -40,8 +40,9 @@ def main():
 			KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER, 'KnapsackExample')
 
 
-		#Set time limit - milisec
-		solver.set_time_limit(180000)
+		#Set time limit - seconds
+		#3 minutes -> 180 seconds
+		solver.set_time_limit(180)
 
 		solver.Init(values, weights, capacities)
 		computed_value = solver.Solve()
@@ -58,12 +59,13 @@ def main():
 		elapsed = time.time() - start
 
 		with open("output/Google-OR-Tools/" + "test " + str(name) + ".txt", 'w+') as solver_file:
-			solver_file.write('File name: {}\n'.format(inp[name]))
-			solver_file.write('Execution time: {} sec\n'.format(elapsed))
-			solver_file.write('Capacity = {} \n'.format(str(capacities[0])))
-			solver_file.write('Total weight = {} \n'.format(str(total_weight)))
-			solver_file.write('Total value = {} \n'.format(computed_value))
-			solver_file.write('Number of items: {} \n'.format(str(len(packed_items))))
+			solver_file.write('File name: {}.kp\nExecution time: {} sec\nCapacity = {} \nTotal weight = {} \nTotal value = {} \nNumber of items: {} \n' \
+							.format(inp[name], elapsed, capacities[0], total_weight, computed_value, len(packed_items)))
+			# solver_file.write('Execution time: {} sec\n'.format(elapsed))
+			# solver_file.write('Capacity = {} \n'.format(str(capacities[0])))
+			# solver_file.write('Total weight = {} \n'.format(str(total_weight)))
+			# solver_file.write('Total value = {} \n'.format(computed_value))
+			# solver_file.write('Number of items: {} \n'.format(str(len(packed_items))))
 			# solver_file.write('Packed items: {} \n'.format(packed_items))
 			# solver_file.write('Packed weights: {}'.format(len(packed_items)))
 

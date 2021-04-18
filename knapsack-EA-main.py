@@ -15,7 +15,7 @@ import knapsack
 # create the knapsack problem instance to be used:
 knapsack = knapsack.Knapsack01Problem()
 
-FILE_NUM = 0
+FILE_NUM = 1
 
 # Genetic Algorithm constants:
 POPULATION_SIZE = 100
