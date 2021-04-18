@@ -34,8 +34,8 @@ def main():
 			KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER, 'KnapsackExample')
 
 
-		#Set time limit
-		solver.set_time_limit(100)
+		#Set time limit - milisec
+		solver.set_time_limit(300000)
 
 		solver.Init(values, weights, capacities)
 		computed_value = solver.Solve()
