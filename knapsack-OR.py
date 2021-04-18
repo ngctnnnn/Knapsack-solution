@@ -3,27 +3,16 @@ from ortools.algorithms import pywrapknapsack_solver
 import seaborn as sns
 import matplotlib.pyplot as plt
 import time
-
+import data
 def main():
-	inp =  ["data/00Uncorrelated/1/R01000/s000", 
-			"data/00Uncorrelated/2/R01000/s000",
-			"data/00Uncorrelated/3/R01000/s000",
-			"data/00Uncorrelated/4/R01000/s000",
-			"data/00Uncorrelated/5/R01000/s000",
-			"data/00Uncorrelated/6/R01000/s000",
-			"data/00Uncorrelated/7/R01000/s000",
-			"data/00Uncorrelated/8/R01000/s000",
-			"data/01WeaklyCorrelated/1/R01000/s000",
-			"data/01WeaklyCorrelated/2/R01000/s000",
-			"data/01WeaklyCorrelated/3/R01000/s000",
-			"data/01WeaklyCorrelated/4/R01000/s000",
-			"data/01WeaklyCorrelated/5/R01000/s000",
-			"data/01WeaklyCorrelated/6/R01000/s000",
-			"data/01WeaklyCorrelated/7/R01000/s000",
-			"data/01WeaklyCorrelated/8/R01000/s000",
-		]
+	#from 1 to 12
+	print('Input folder to run (1->13): ', end = '')
+	folder_to_run = int(input())
 
-	for name in range(len(inp)):
+	inp = data.input_data()
+
+	for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
+		print('File name: ' + inp[name])
 		print('Package number: ' + str(name + 1))
 		with open(inp[name] + ".kp") as level_file:
 			rows = level_file.read().split('\n')
