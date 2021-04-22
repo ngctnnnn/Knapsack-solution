@@ -1,0 +1,7 @@
+File name: data/00Uncorrelated/8/R01000/s096
+Generation: 734 
+Executed time = 3.5677528381347656 sec 
+Best genes = [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1] 
+Best solution = 141682.0 
+Total weight = 128603 
+Total value = 141682 

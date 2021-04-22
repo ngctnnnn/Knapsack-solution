@@ -12,13 +12,13 @@ def main():
 	inp = data.input_data()
 	
 	
-	#Declare time
-	start = time.time()
-	elapsed = 0
-	check_point = 19
+	check_point = 26	
 
 	# for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
 	for name in range(check_point, len(inp)):
+		#Declare time
+		start = time.time()
+		elapsed = 0
 		print('File name: ' + inp[name])
 		print('Package number: ' + str(name))
 		with open(inp[name] + ".kp") as level_file:
@@ -36,8 +36,7 @@ def main():
 			
 
 		solver = pywrapknapsack_solver.KnapsackSolver(
-			pywrapknapsack_solver.KnapsackSolver.
-			KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER, 'KnapsackExample')
+			pywrapknapsack_solver.KnapsackSolver.KNAPSACK_MULTIDIMENSION_BRANCH_AND_BOUND_SOLVER, 'KnapsackExample')
 
 
 		#Set time limit - seconds
@@ -57,6 +56,9 @@ def main():
 				total_weight += weights[0][i]
 
 		elapsed = time.time() - start
+
+		# print("Capacity = {}\nTotal weight = {} \nTotal value = {} \nNumber of items: {} \n " \
+		# 					.format(capacities[0], total_weight, computed_value, len(packed_items)))
 
 		with open("output/Google-OR-Tools/" + "test " + str(name) + ".txt", 'w+') as solver_file:
 			solver_file.write('File name: {}.kp\nExecution time: {} sec\nCapacity = {} \nTotal weight = {} \nTotal value = {} \nNumber of items: {} \n' \

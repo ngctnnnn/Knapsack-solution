@@ -1,0 +1,7 @@
+File name: data/01WeaklyCorrelated/8/R10000/s079
+Generation: 356 
+Executed time = 1.7930772304534912 sec 
+Best genes = [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0] 
+Best solution = 11989.0 
+Total weight = 13389 
+Total value = 11989 

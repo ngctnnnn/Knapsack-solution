@@ -15,7 +15,7 @@ import knapsack
 # create the knapsack problem instance to be used:
 knapsack = knapsack.Knapsack01Problem()
 
-FILE_NUM = 1
+FILE_NUM = 23
 
 # Genetic Algorithm constants:
 POPULATION_SIZE = 100
@@ -75,7 +75,7 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
     #set the timer for 3 minutes = 180 seconds
     #if the previous max is larger or equal than current max 300 times -> break the algorithm
     #which means the max is almost optimal or already optimal
-    while gen <= ngen and elapsed < 300 and cnt < 180:
+    while gen <= ngen and elapsed < 180 and cnt < 300:
         
         gen += 1
 
@@ -186,7 +186,7 @@ def main():
         solver_file.write('Total weight = {} \n'.format(totalWeight))
         solver_file.write('Total value = {} \n'.format(totalValue))
 
-    # print("-- Executed time = " + str(minutes) + " sec", end = '\n')
+    print("-- Executed time = " + str(minutes) + " sec", end = '\n')
     # print("-- Best Ever Individual = ", best)
     # print("-- Best Ever Fitness = ", best.fitness.values[0])
 
