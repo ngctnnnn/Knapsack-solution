@@ -6,14 +6,14 @@ while [ $count -lt 12  ]; do
 done
 counter=0
 cntfolder=1
-for file in *.txt; do
-        if [ $counter -eq 8  ]; do
+for file in $1/*; do
+        if [ $counter -eq 8  ]; then 
                 counter=1
                 cntfolder=$(($cntfolder+1))
         else
                 counter=$(($counter+1))
         fi
-        mv $file "~/home/ngctnnnn/Documents/Knapsack-solution/output/Output $cntfolder/test $counter.txt"
+        mv "/home/ngctnnnn/Documents/Knapsack-solution/output/Genetic Algorithm/$file" "~/home/ngctnnnn/Documents/Knapsack-solution/output/Output $cntfolder/test $counter.txt"
 done
 exit 0
 
