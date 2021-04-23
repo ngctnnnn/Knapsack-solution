@@ -2,7 +2,7 @@
 This is my repo for CS106 - Artificial Intelligence - homework   
 
 ## How to run 
-(Optional): Randomize a new dataset     
+Randomize a new dataset (Optional)     
 `python3 generate_data.py`     
 ### With Google OR Tools
 **Step 1**: Create the dataset by the means of randomizing    
