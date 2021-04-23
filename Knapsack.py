@@ -1,29 +1,28 @@
 import numpy as np
 import data
-
+import sys
 class Knapsack01Problem:
-    def __init__(self):
+    def __init__(self, file_number):
 
         # initialize instance variables:
         self.items = []
         self.maxCapacity = 0
         self.file_name = ""
 
-        # initialize the data:
-        self.__initData()
 
-        self.file_number = 0
+        self.file_number = file_number
+        # initialize the data:
+        self.__initData(self.file_number)
+
 
 
     def __len__(self):
         #return: the total number of items defined in the problem
         return len(self.items)
 
-    def __initData(self):
+    def __initData(self, file_number):
         
         inp = data.input_data()
-
-        self.file_number = 23
 
         #Read files
         with open(inp[self.file_number] + ".kp") as level_file:

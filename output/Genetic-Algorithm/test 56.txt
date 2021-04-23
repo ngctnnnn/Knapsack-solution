@@ -1,0 +1,7 @@
+File name: data/06UncorrelatedWithSimilarWeights/8/R10000/s068
+Generation: 318 
+Executed time = 1.454528570175171 sec 
+Best genes = [1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1] 
+Best solution = 168708.0 
+Total weight = 92669 
+Total value = 168708 

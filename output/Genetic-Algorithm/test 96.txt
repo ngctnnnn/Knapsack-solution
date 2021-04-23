@@ -1,0 +1,7 @@
+File name: data/11ProfitCeiling/8/R10000/s048
+Generation: 302 
+Executed time = 1.1849985122680664 sec 
+Best genes = [1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0] 
+Best solution = 1904.0 
+Total weight = 126925 
+Total value = 1904 

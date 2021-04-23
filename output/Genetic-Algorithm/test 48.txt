@@ -1,0 +1,7 @@
+File name: data/05SubsetSum/8/R01000/s013
+Generation: 321 
+Executed time = 1.4961507320404053 sec 
+Best genes = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] 
+Best solution = 5002627.0 
+Total weight = 23128 
+Total value = 5002627 

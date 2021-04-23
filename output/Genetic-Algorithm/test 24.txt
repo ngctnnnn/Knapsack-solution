@@ -1,0 +1,7 @@
+File name: data/02StronglyCorrelated/8/R01000/s045
+Generation: 465 
+Executed time = 2.0629079341888428 sec 
+Best genes = [1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1] 
+Best solution = 178922.0 
+Total weight = 140922 
+Total value = 178922 

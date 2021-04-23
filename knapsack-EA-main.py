@@ -3,6 +3,8 @@ from deap import creator
 from deap import tools
 from deap import algorithms
 
+import sys
+
 import random
 # import tools
 import numpy
@@ -10,12 +12,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import time
-import knapsack
+import Knapsack
 
-# create the knapsack problem instance to be used:
-knapsack = knapsack.Knapsack01Problem()
-
-FILE_NUM = 23
+import sys, getopt
 
 # Genetic Algorithm constants:
 POPULATION_SIZE = 100
@@ -36,6 +35,7 @@ def varAnd(population, toolbox, cxpb, mutpb):
         if random.random() < cxpb:
             offspring[i - 1], offspring[i] = toolbox.mate(offspring[i - 1], offspring[i])
             del offspring[i - 1].fitness.values, offspring[i].fitness.values
+
 
     for i in range(len(offspring)):
         if random.random() < mutpb:
@@ -116,45 +116,55 @@ def eaSimple(population, toolbox, cxpb, mutpb, ngen, stats=None,
 
     return population, logbook, elapsed, gen 
 
-toolbox = base.Toolbox()
-
-# create an operator that randomly returns 0 or 1:
-toolbox.register("zeroOrOne", random.randint, 0, 1)
-
-# define a single objective, maximizing fitness strategy:
-creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-
-# create the Individual class based on list:
-creator.create("Individual", list, fitness=creator.FitnessMax)
-
-# create the individual operator to fill up an Individual instance:
-toolbox.register("individualCreator", tools.initRepeat, creator.Individual, toolbox.zeroOrOne, len(knapsack))
-
-# create the population operator to generate a list of individuals:
-toolbox.register("populationCreator", tools.initRepeat, list, toolbox.individualCreator)
-
-# fitness calculation
-def knapsackValue(individual):
-    return knapsack.getValue(individual),  # return a tuple
-
-toolbox.register("evaluate", knapsackValue)
-
-# genetic operators:mutFlipBit
-
-# Tournament selection with tournament size of 3:
-toolbox.register("select", tools.selTournament, tournsize=3)
-
-# Single-point crossover:
-toolbox.register("mate", tools.cxTwoPoint)
-
-# Flip-bit mutation:
-# indpb: Independent probability for each attribute to be flipped
-toolbox.register("mutate", tools.mutFlipBit, indpb=1.0/len(knapsack))
-
 
 # Genetic Algorithm flow:
 def main():
+        
+    #Input
+    print("Test = ", end = '')
+    FILE_NUM = int(input())
+
+
+    # create the knapsack problem instance to be used:
+    knapsack = Knapsack.Knapsack01Problem(FILE_NUM)
+
+    toolbox = base.Toolbox()
+
+    # create an operator that randomly returns 0 or 1:
+    toolbox.register("zeroOrOne", random.randint, 0, 1)
+
+    # define a single objective, maximizing fitness strategy:
+    creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+
+    # create the Individual class based on list:
+    creator.create("Individual", list, fitness=creator.FitnessMax)
+
+    # create the individual operator to fill up an Individual instance:
+    toolbox.register("individualCreator", tools.initRepeat, creator.Individual, toolbox.zeroOrOne, len(knapsack))
+
+    # create the population operator to generate a list of individuals:
+    toolbox.register("populationCreator", tools.initRepeat, list, toolbox.individualCreator)
+
+    # fitness calculation
+    def knapsackValue(individual):
+        return knapsack.getValue(individual),  # return a tuple
+
+    toolbox.register("evaluate", knapsackValue)
+
+    # genetic operators:mutFlipBit
+
+    # Tournament selection with tournament size of 3:
+    toolbox.register("select", tools.selTournament, tournsize=3)
+
+    # Single-point crossover:
+    toolbox.register("mate", tools.cxTwoPoint)
+
     
+    # Flip-bit mutation:
+    # indpb: Independent probability for each attribute to be flipped
+    toolbox.register("mutate", tools.mutFlipBit, indpb=1.0/len(knapsack))
+
+
     # create initial population (generation 0):
     population = toolbox.populationCreator(n=POPULATION_SIZE)
 
@@ -168,8 +178,14 @@ def main():
     hof = tools.HallOfFame(HALL_OF_FAME_SIZE)
 
     # perform the Genetic Algorithm flow with hof feature added:
-    population, logbook, minutes, gen = eaSimple(population, toolbox, cxpb=P_CROSSOVER, mutpb=P_MUTATION,
-                                              ngen=MAX_GENERATIONS, stats=stats, halloffame=hof, verbose=True)
+    population, logbook, minutes, gen = eaSimple(population, 
+                                                toolbox, 
+                                                cxpb=P_CROSSOVER, 
+                                                mutpb=P_MUTATION,
+                                                ngen=MAX_GENERATIONS, 
+                                                stats=stats, 
+                                                halloffame=hof, 
+                                                verbose=True)
 
 
     # print best solution found:
@@ -206,4 +222,5 @@ def main():
     plt.show()
 
 if __name__ == "__main__":
+    # main(sys.argv[1:])
     main()
