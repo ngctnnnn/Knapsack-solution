@@ -12,7 +12,7 @@ def main():
 	inp = data.input_data()
 	
 	
-	check_point = 26	
+	check_point = 28
 
 	# for name in range((folder_to_run - 1)*8, (folder_to_run - 1)*8 + 8):
 	for name in range(check_point, len(inp)):

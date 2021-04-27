@@ -13,7 +13,7 @@ for file in $1/*; do
         else
                 counter=$(($counter+1))
         fi
-        mv "/home/ngctnnnn/Documents/Knapsack-solution/output/Genetic Algorithm/$file" "~/home/ngctnnnn/Documents/Knapsack-solution/output/Output $cntfolder/test $counter.txt"
+        mv $file "~/home/ngctnnnn/Documents/Knapsack-solution/output/Output $cntfolder/test $counter.txt"
 done
 exit 0
 

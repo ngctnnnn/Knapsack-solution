@@ -28,6 +28,8 @@ class Knapsack01Problem:
         with open(inp[self.file_number] + ".kp") as level_file:
             rows = level_file.read().split('\n')
 
+        print(rows[0])
+
         number_of_items = (int)(rows[1])
         self.items = []
         self.file_name = inp[self.file_number - 1]
@@ -36,7 +38,6 @@ class Knapsack01Problem:
             x = rows[i].split(" ")[0]
             y = rows[i].split(" ")[1]
             self.items.append(((int)(x), (int)(y)))
-
 
         self.maxCapacity = (int)(rows[2])
 
@@ -47,26 +48,32 @@ class Knapsack01Problem:
 
         totalWeight = totalValue = 0
 
+
         for i in range(len(zeroOneList)):
-            weight, value = self.items[i]
+            value, weight = self.items[i]
+
             if totalWeight + weight <= self.maxCapacity:
                 totalWeight += zeroOneList[i] * weight
                 totalValue += zeroOneList[i] * value
+
         return totalValue
 
     def printItems(self, zeroOneList):
 
         totalWeight = totalValue = 0
+        values, weights = [], []
 
         for i in range(len(zeroOneList)):
-            weight, value = self.items[i]
+            value, weight = self.items[i]
+            weights.append(value)
+            values.append(weight)
             if totalWeight + weight <= self.maxCapacity:
                 if zeroOneList[i] > 0:
                     totalWeight += weight
                     totalValue += value
         #             print("weight = {}, value = {}, accumulated weight = {}, accumulated value = {}".format(weight, value, totalWeight, totalValue))
         # print("- Total weight = {}, Total value = {}".format(totalWeight, totalValue))
-        return totalWeight, totalValue
+        return totalWeight, totalValue, self.maxCapacity, weights, values
 
 def main():
     

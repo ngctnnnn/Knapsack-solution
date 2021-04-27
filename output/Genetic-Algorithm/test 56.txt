@@ -1,7 +1,8 @@
 File name: data/06UncorrelatedWithSimilarWeights/8/R10000/s068
-Generation: 318 
-Executed time = 1.454528570175171 sec 
-Best genes = [1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1] 
-Best solution = 168708.0 
-Total weight = 92669 
-Total value = 168708 
+Generation: 319 
+Executed time = 2.540381908416748 sec 
+Best genes = [0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1] 
+Best solution = 101763.0 
+Max capacity = 92961
+Total weight = 92769 
+Total value = 101763 

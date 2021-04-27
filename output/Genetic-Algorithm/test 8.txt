@@ -1,7 +1,8 @@
 File name: data/00Uncorrelated/8/R01000/s096
-Generation: 734 
-Executed time = 3.5677528381347656 sec 
-Best genes = [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1] 
-Best solution = 141682.0 
-Total weight = 128603 
-Total value = 141682 
+Generation: 332 
+Executed time = 2.0911552906036377 sec 
+Best genes = [1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0] 
+Best solution = 139956.0 
+Max capacity = 128777
+Total weight = 128754 
+Total value = 139956 
