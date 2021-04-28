@@ -125,7 +125,7 @@ def main():
     # print("Test = ", end = '')
     # FILE_NUM = int(input())
 
-    for i in range(check_point, 103):
+    for i in range(check_point, 1):
         print("Test =", i)
         FILE_NUM = i
         # create the knapsack problem instance to be used:
@@ -219,6 +219,7 @@ def main():
             solver_file.write('Total weight = {} \n'.format(totalWeight))
             solver_file.write('Total value = {} \n'.format(totalValue))
 
+        print('File name: {}\n'.format(knapsack.file_name))
         print("-- Executed time = " + str(minutes) + " sec", end = '\n')
         # print("-- Best Ever Individual = ", best)
         # print("-- Best Ever Fitness = ", best.fitness.values[0])
